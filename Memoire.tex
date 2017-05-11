@@ -1,0 +1,168 @@
+\textsc{?}\textsc{?}\documentclass[a4paper,oneside,12pt]{StyleThese}
+\usepackage{frcursive}
+\include{formatAndDefs-mod}
+\usepackage{setspace}
+\usepackage{float}
+%\usepackage{tabu}
+\usepackage[table]{xcolor}
+%\usepackage{longtable}
+%---------------------------------
+%----------------------------------
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[font={small},labelfont=bf,textfont=it,format=hang,justification=justified]{caption}
+\usepackage{array}
+\usepackage{hhline}
+\usepackage{enumitem}
+\usepackage{footmisc}
+\setlength{\skip\footins}{1cm}
+\usepackage[final]{pdfpages}
+%\usepackage{supertabular}
+\usepackage{pdflscape}
+\usepackage{afterpage}
+%\usepackage[titletoc]{appendix}
+\usepackage{hyperref}
+\usepackage{url}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\arraybslash{\let\\\@arraycr}
+%\usepackage[colorlinks=true]{hyperref}
+\hypersetup{
+%backref={true}, %permet d'ajouter des liens dans...
+%pagebackref=true,%...les bibliographies
+%hyperindex=true, %ajoute des liens dans les index.
+colorlinks=true, %colorise les liens
+breaklinks=true, %permet le retour à la ligne dans les liens trop longs
+citecolor=black,
+urlcolor= blue, %couleur des hyperliens
+linkcolor= black, %couleur des liens internes
+%bookmarks=true, %créer des signets pour Acrobat
+bookmarksopenlevel=1,
+%bookmarksopen=true, %si les signets Acrobat sont crées,
+%les afficher complètement.
+pdftitle={}, %informations apparaissant dans
+pdfauthor={}, %dans les informations du document
+pdfsubject={} %sous Acrobat.
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frenchbsetup{StandardEnumerateEnv=true}
+\frenchbsetup{StandardItemizeEnv=true}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%               DEBUT DU DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\includepdf[scale=1,pages=1]{Page.pdf}
+%\maketitle
+%\clearpage 
+\pagenumbering{roman}
+
+%\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+       
+%-----------------DEDICACES--------------------------%
+%\chapter*{\thispagestyle{empty}
+\chapter*{}
+\begin{cursive}
+\vspace*{\stretch{1}}
+\begin{spacing}{1.5}
+\begin{flushright}
+%\fontfamily{pnc}\selectfont
+%\bf
+\Large
+Je dédie ce modeste travail~:\\ 
+A mes parents qui m'ont toujours\\ soutenu et guidé \\
+
+\end{flushright}
+\end{spacing}
+\vspace*{\stretch{2}}
+\end{cursive}
+\normalsize
+%----------------------------------------------------%
+%-----------------ACKNOWLEDGMENTS--------------------%
+\include{Remerciements}
+%----------------------------------------------------%
+
+
+%-----------------ABSTRACT---------------------------%
+\chapter*{}
+%\vspace{5cm}
+\begin{flushleft}
+\textbf{\Large Résumé~:}
+\end{flushleft}
+\normalsize
+\noindent
+Ceci est le résumé en Français.....\\
+\bigskip
+\noindent
+\textbf{\Large Mots clés~:~} Mot1, Mot2, Mot3, Mot4, ... \normalsize
+
+%----------------------------------------------------%
+
+\vspace{5cm}
+\begin{flushleft}
+\textbf{\Large Abstract:}
+\end{flushleft}
+\normalsize
+Here is the abstract of the project..\\
+\bigskip
+\noindent
+\textbf{\Large Key words:~} Word1, Word2, Word3, Word4,... \normalsize
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Insertion du SOMMAIRE, Listes des figures et des tableaux
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\dominitoc
+\renewcommand{\tablename}{Tableau}
+\renewcommand{\listtablename}{Liste des tableaux}
+\renewcommand{\listfigurename}{Liste des figures}
+\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Liste des figures}
+\listoffigures
+\mtcaddchapter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\listoftables \addcontentsline{toc}{chapter}{Liste des tableaux} 
+\mtcaddchapter        %new code
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{Abreviations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\pagenumbering{arabic} 
+\mainmatter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{spacing}{1.45}
+%\include{Introduction}
+\include{chapitre1}
+\include{chapitre2}
+%\include{Chapitre}
+%\include{Chapter4}
+\include{Conclusion}
+\end{spacing}
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{Biblio}
+
+
+%--------------------------------------%
+%     ANNEXES                           
+%------------------------------------------
+%\chapter*{Annexes}
+%\addcontentsline{toc}{chapter}{Annexes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{appendix}
+%-------------------Annexe 1-------------------%
+%\include{Annexe1}
+
+%-------------------Annexe 2-------------------%
+%\include{Annexe2}
+%-------------------Annexe 3 -------------------%
+%\include{Annexe3}	
+%\end{appendix}
+\end{document}

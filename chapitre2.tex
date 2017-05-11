@@ -1,0 +1,154 @@
+\chapter{Déploiement d'applications}
+\section{Introduction}
+Le Cloud Computing se positionne actuellement en tête de liste des nouvelles technologies. Il
+se caractérise par son extensibilité et élasticité et son exploitabilité par un grand nombre
+d'utilisateurs dans le monde entier. 
+
+Des nombreux individus et organisations ont choisi de déplacer leurs serveurs ou applications
+dans un environnement en nuage afin d'optimiser l'utilisation de leur infrastructure informatique ,passage à l'échelle, haute disponibilité, etc.., L'exploitation des ressources d'infrastructure dans un environnement partagé,
+ou mis en commun, permet de générer des économies de coûts,le deplacement d'une application correspond au processus de redéploiement de celle-ci, généralement sur de nouvelles plates-formes et au sein d'une nouvelle infrastructure. 
+
+D'une manière générale, il existe deux modèles de service cible potentiels pour la migration d'une application Infrastructure en tant que service (IaaS) et Platform as a Service (PaaS).
+pour deployer un application chez les cloud provider il faut la bien configurées et dimensionner l'environnement d'exécution,les dépendances de l'application pour prendre en compte
+l'hétérogénéité et l'élasticité inhérentes au paradigme du Cloud Computing .
+
+Notamment, il existe un grand nombre de provider ayant des niveaux de fonctionnalité et des possibilités de dimensionnement hétérogènes parmi les différentes solutions de cloud disponibles (Amazon EC2, Rackspace cloud , WindowsAzure). Lors d'un déploiement d'application sur un PaaS, il faut choisir un
+serveur d'application, la fréquence CPU nécessaire à l'exécution, la base de données à utiliser, sa capacité en terme espace mémoire, etc. Cette variabilité en
+termes de configuration et de dimensionnement offre une multitude de possibilités de configurations qui sont généralement effectuées de manière ad hoc et sont
+sources d'erreurs lorsqu'elles sont configurées à la main\cite {quinton:hal-00747319}.
+
+
+
+\section{Définition du déploiement }
+Après avoir développé un application , vous  pouvez le déployer, nous présentons trois grandes  définition  sur le déploiement : 
+Nous commencerons par la définition de Clemens Szyperski \cite {conf/icse/Szyperski03},puis  nous poursuivrons par celle proposée par l'Object
+Management Group (OMG) \cite {web/omg} et enfin, nous finirons par la définition Définition de Alan Dearle \cite {alan/Dearle07} .
+.
+\subsection{Définition de C. Szyperski}
+La définition du déploiement proposée par C. Szyperski  c'est une définition générale du déploiement pour le domaine des composants logiciels, sans pour autant préciser si elle se limite au déploiement sur le cloud computing  ou non. Le déploiement est défini comme étant l'étape de préparation d'un composant en vue de l'installer dans un environnement spécifique. C. Szyperski précise explicitement que le déploiement (c'est-à-dire, la préparation) revient à renseigner les paramètres d'un descripteur de déploiement \cite {conf/icse/Szyperski03}. 
+ 
+Nous présentons les étapes qui précèdent et qui suivent cette phase de déploiement. 
+Cela va nous permettre de préciser ou cette phase de déploiement est située dans le cycle de vie logiciel et quelle est sa portée.
+L'étape qui précède le déploiement est l'acquisition. Cette étape permet d'obtenir un composant logiciel. 
+C. Szyperski énonce que tout composant acquis est déployable. 
+Ce qui signifie qu'un composant proposé à l'acquisition est produit exécutable par une machine physique ou virtuelle.
+Plus précisément, dans \cite {conf/icse/Szyperski03}, l'auteur met en avant le fait que tout composant doit être une unité de déploiement (page 686).
+Il définit ensuite une unité de déploiement comme un délivrable exécutable dans un environnement d'exécution, 
+sans besoin d'intervention humaine pour modifier le composant afin de le rendre effectivement installable et prêt à être exécuté. 
+L'installation est l'étape qui suit immédiatement le déploiement. Elle rend un composant disponible sur un site (host) particulier,
+dans un environnement particulier. Il est précisé que cette étape d'installation est souvent automatisée. 
+Enfin, l'étape d'installation est suivie par le chargement (Loading) qui consiste à lancer l'exécution d'un composant dans un contexte d'exécution particulier.
+\begin{center}
+\includegraphics[scale=0.6]{figures/la_phase_de_deploiement.png}
+
+\caption{figure :la phase de déploiement et son context selon Szyperski}
+\label{fig5}
+\end{center}
+\subsection{Définition de l'Object Management Group}
+La phase de déploiement est constitue de cinq étapes, à savoir, l'Installation, la Configuration, le Planning, la préparation et le Launch. Ces cinq étapes sont structurées les unes après les autres de manière linéaire et séquentielle.  
+ 
+La première étape est l'installation. Elle est définie comme la récupération, l'acquisition d'un package logiciel (software package) publié et son rapatriement dans un dépôt logiciel sous le contrôle du déployeur. Un dépôt peut se situer, ou non, sur la même machine ou sur le même système de fichier que celui dans lequel le logiciel va être déployé. C'est une zone qui permet au déployeur d'appliquer des politiques au logiciel, comme l'authentification ou la certification (du logiciel), avant de lancer toute étape concernant l'exécution du logiciel à proprement dit. Un dépôt ne doit pas nécessairement être persistant et ne doit pas, non plus, nécessairement être stocker ou avoir une copie du logiciel ou des métadonnées du logiciel. L'OMG propose, aussi, sa propre définition de l'activité d'installation. Ainsi, l'installation n'est pas définie comme le déplacement d'un logiciel vers l'environnement d'exécution où il pourra ensuite être activé, mais simplement comme le déplacement du logiciel acquis vers le dépôt du déployeur. 
+ 
+La seconde étape du processus de déploiement est la configuration. Pour réaliser une configuration, un package logiciel doit être installé dans le dépôt du déployeur. Le déployeur est le seul à pouvoir effectivement le configurer. Les possibilités de configuration offertes dépendent de chaque package logiciel. Un package logiciel peut, par exemple, offrir des options de configuration concernant la langue à utiliser, le système de mesure, le délai d'attente entre chaque mesure ou encore la fréquence et le formatage des rapports de mesures générés. Plusieurs configurations peuvent être associées à un même package logiciel. Enfin, cette seconde étape ne concerne que la configuration des fonctions du package logiciel et n'est en aucun cas destinée à la prise de décisions concernant le déploiement comme, par exemple, le choix de l'implémentation à utiliser ou, le cas échéant, le choix de la distribution des différents éléments du package logiciel. 
+ 
+La troisième étape s'articule sur la planification (Planning). Son but est de définir comment et ou une configuration va être exécutée dans l'environnement cible. Pour rappel, la spécification définit un environnement comme étant une infrastructure composée d'ordinateurs et de réseaux. L'activité de planification prend en compte les requis de la configuration à déployer, ainsi que les ressources offertes par l'environnement cible et sélectionne les implémentations à utiliser. Elle décide également comment et où la configuration donnée sera exécutée dans l'environnement cible. Le résultat de l'étape de planification est un plan de déploiement spécifique (à la configuration en cours de déploiement, ainsi qu'à l'environnement cible). Le déploiement ainsi mis en  ½uvre est un déploiement sensible au contexte. 
+ 
+L'étape avant dernière étape est nommée préparation. Elle est définie comme la mise en  ½uvre effective des décisions prises lors de la planification. Ces décisions sont spécifiées dans le plan de déploiement. Le but de la préparation est de rendre le logiciel prêt à être exécuté. Cette mise en  ouvre consiste, entre autre, à déplacer des binaires exécutables dans les ordinateurs qui leur ont été attribués. Comme pour la planification deux modes de préparation sont distingués. Le premier est le mode juste à temps, le second est le mode par avance. Le mode juste à temps implique que l'étape de préparation doit immédiatement être suivie par l'étape de lancement. Le mode par avance n'impose pas cette contrainte. 
+La dernière étape est le lancement (Launch). Elle consiste à démarrer l'exécution du logiciel, en collectant,  toutes les ressources  requises par le ou les packages logiciels dans l'environnement d'exécution. Afin de  lancer une application à base de composants ,il faut instancier des composants dans les ordinateurs de l'environnement cible, la configuration de ces instances de composants et la mise en place des interactions entre les différentes instances et enfin, le démarrage de l'exécution de l'application en elle-même.  
+Dès que l'application s'exécute alors, soit l'application s'exécute malgré que son exécution n'est pas complète, soit elle est arrêtée (c'est-à-dire désactivée) en utilisant la même infrastructure de déploiement que celle par laquelle son lancement a été effectué [lien vers le mémoire]. 
+ 
+Les phases que nous venons de présenter peuvent tout à fait être déroulées une par une séparément, ou comme une seule grande étape de déploiement entièrement automatisée. 
+ 
+\begin{center}
+\includegraphics[scale=0.6]{figures/deploiement_omg.png}
+
+\caption{figure :la phase de déploiement et son context selon OMG]}
+\label{fig6}
+\end{center}
+
+\subsection{Définition de Alan Dearle}
+Le déploiement de logiciel est défini dans \cite {alan/Dearle07}comme le processus, constitué
+d?un ensemble d?activités liées, entre l?acquisition et l?exécution du logiciel. Ce processus
+a pour objectif de rendre opérationnel une application, qui peut ainsi être utilisée par
+les utilisateurs. Une fois l?application déployée, le processus de déploiement continue
+par les mécanismes d?adaptation du logiciel afin de chercher à atteindre une qualité de
+service. En effet, les infrastructures modernes sur lesquelles on déploie des applications
+sont caractérisées par de fréquentes variations de leur environnement.
+Cependant, l?objectif d?un déploiement de logiciel, en plus de ceux déjà notés dans ces
+définitions, peut être de maintenir une qualité de service autre que la seule disponibilité,
+et que la non-atteinte de cette qualité, provoque une stratégie de redéploiement. Cette
+qualité de service peut être qualitative (par exemple maintenir une topologie particulière)
+ou bien quantitative (par exemple le logiciel devra être capable de réaliser certaines tâches
+dans un temps inférieur à une valeur donnée).
+Ainsi, s?appuyant sur les définitions précédentes, on peut définir le déploiement de
+logiciel comme un processus consistant en un ensemble d?activités reliées et ayant pour
+but de rendre le logiciel disponible à l?utilisation, à jour et en état d?assurer une qualité
+de service prédéfinie.
+Le processus de déploiement suppose au moins l?existence d?un logiciel qu?on veut
+déployer, d?une infrastructure cible, constituée de ressources informatiques (ordinateurs,clusters, téléphones,...) interconnectées, sur laquelle le logiciel sera déployé, et, éventuelle-
+ment, d?outils permettant d?automatiser le déploiement (sinon l?opération sera effectuée
+manuellement)\cite {faye:tel-01280722}.
+
+\section{Travaux connexes}
+Nous  présentons dans cette section les principaux approches de déploiement automatique  d'applications sur le cloud existent dans la littérature ,
+ainsi nous citons les solutions les plus répondus actuellement
+\subsection{Les approches de déploiement}
+Il existe plusieurs solution «?outils et framworks » de déploiement automatique des logiciel dans
+le cloud computing s'implique l'existence de plusieurs approche de base derrière ces solutions. 
+\subsubsection{Les scripts}
+Pour faire face au déploiement automatique, différents outils et solutions utilisent la codification manuelle par le biais de scripts,
+ce qui nécessite plus de temps pour déployer le logiciel.
+Ce type d'approche réduit le risque d'erreur humaine lors du processus de déploiement manuelle, et pour le cas de développeur, 
+il s'occupe de développement d'application au lieu la configuration du cloud. Le seul inconvénient de ces approches de déploiement,
+c'est qu'il augmente les coûts associés à la codification, le temps et les efforts humains \cite {ribeiro2016model}.
+
+\subsubsection{Les approches semi-automatiques}
+En outre, les modèles virtuels proposés par Disnix [Disnix] ont présenté des mécanismes  
+semi-automatisés pour le déploiement. En d'autres termes, ces approches nécessitent encore que certaines étapes sont effectuées manuellement pendant le processus de déploiement.
+La solution proposée par Ardagna [Ardagna ] a présenté une approche partiellement orientée et semi-automatisée pour le déploiement de logiciel.
+Elle exige un certain niveau de la compréhension de l'utilisateur final sur les détails de la structure des clouds et une charge lourde de l'information dans les modèles de déploiement demandé à l'utilisateur. 
+\subsubsection{Les Workflow}
+Cette solution propose que les développeurs aient les services à déployer pour créer les modèles UML du déploiement de logiciels.
+Ces modèles définissent tous les informations requises pour le déploiement (machines virtuelles, services, applications, systèmes d'exploitation des machines virtuelles,
+des bases de données, fournisseur de services et les clés d'accès) en tant que paramètres sans la nécessité du codage de la configuration d'une machine virtuelle.
+Ces modèles sont transformés pour générer le code de déploiement à l'aide d'outils spécialisés. 
+le code de déploiement à l'aide d'outils spécialisés.
+\subsubsection{Approche basée sur les modèles}
+L'objectif est de déployer le logiciel à un niveau plus élevé d'abstraction pour réduire les efforts humains et le temps passé à effectuer la tâche de déploiement, car l'approche basée sur un modèle est une meilleure façon d'augmenter la productivité de développeur.
+Cette approche est la proposition de l'OMG qui est en cours de standardisation. 
+La spécification de l'OMG, elle a pour objectif de fournir un modèle de données et d'exécution permettant de gérer le développement, le packaging, le déploiement et la configuration d'applications à base de composants.
+La spécification est décrite à travers une entité appelée "Platform-Independent Model" (PIM), composée d'un ensemble de modèles UML et de règles sémantiques associées.
+Le PIM est indépendant de tout modèle de composant particulier. Pour utiliser cette spécification avec un modèle particulier de composant, il faut créer une entité appelée "Platform-Specific Mapping" (PSM). Le PSM est un ensemble de règles qui transforme les modèles UML du PIM en données et modèles d'exécution, dans un format approprié pour le déploiement du modèle de composant cible. La spécification n'a pour l'instant standardisé que le PSM pour le modèle de composant Corba, dans lequel les modèles de données et d'exécution sont transformés en deux formats : XML schéma pour le stockage sur disque et l'échange entre outils, 
+et IDL (Interface Definition Language) pour la représentation du modèle d'exécution et des communications entre les entités du déploiement.
+\section{Outils et frameworks de déploiement}
+D'après une étude bibliographique sur les travaux qui s'articulent sur le déploiement 
+automatique des logiciels sur le cloud computing, nous avons sélectionné les principaux outils 
+et frameworks de déploiement afin de les décrire :
+\begin{enumerate}
+\item L'outil SALOON est un outil de configuration et de déploiement. Basé sur des ontologies, 
+SALOON permet de spécifier une configuration technique pour l'application à déployer et de 
+dimensionner cette configuration
+
+\item La solution de Franklin est basée sur les modèles pour le déploiement automatique des 
+logiciels sur le cloud computing. Cette solution ne nécessite que le développeur d'avoir des 
+connaissances à propos de la clé d'accès et le nom du fournisseur de services, étant donné que 
+les détails spécifiques sont distraits. L'objectif est de déployer le logiciel à un niveau plus 
+élevé d'abstraction et réduire les efforts humains et le temps passé à effectuer pour le 
+déploiement des tâches, car l'approche basée sur les modèles est une meilleure façon 
+d'augmenter la productivité du développeur\cite {moda} . 
+ 
+ \item moSaIC Le projet européen de recherche mOSAIC \cite{conf/fedcsis/MoscatoAMFM11} propose une API et une plateformePaaS libre permettant de développer et déployer des applications « ca nécessite pas l?intervention directe du développeur d?application » pour un environnement multi-clouds. Ils se concentrent sur l?abstraction pour les développeurs d'applications et l'état peut facilement activer les utilisateurs pour "obtenir les caractéristiques d'application souhaitées (comme l'évolutivité, la tolérance aux pannes,QoS ..etc.) "\cite{conf/servicewave/PetcuCNPMVRA10}. Il existe deux couches d'abstraction, une pour l'approvisionnement en cloud et une pour la logique d'application. La solution mOSAIC sélectionnera un cloud approprié sur la façon dont les développeurs décrivent leur application, plusieurs providers cloud peuvent être sélectionnés en fonction de leurs propriétés.La construction d?une application déployée avec mOSAIC exige que cette dernièresoit constituée de composants avec des dépendances explicites pour communiquer etéchanger des données entre eux. En outre, l?architecture de l?application doit être de type SOA et doit utiliser uniquement l?API mOSAIC pour la communication. mOSAIC utilise uniquement la communication asynchrone «technologies de files d'attente basées sur le cloud
+
+\item Le projet européen de recherche RESERVOIR \cite{journals/ibmrd/RochwergerBLGNLMWECBEG09} vise à développer une infrastructure de fédération cloud entre les cloudsprivé et hybride afin de permettre  l?interopérabilité dynamique entre les fournisseurs de cloud. Avec cela, une application déployée peut répartir la charge de travail de manière transparente entre les clouds privés et publics en fonction des exigences des applications. La transparence est réalisée en créant des sites de réservoir, un pour chaque fournisseur. Chaque site est indépendant et exécuteun environnement d'exécution virtuelle (VEE) qui est géré par un VirtualExecution Environment Manager (VEEM). L'VEEM communique avec d'autresVEEM et sont en mesure de faire une fédération entre les clouds. Chaque site doit avoir des composants logiciels réservoirs installés, ce qui le rend autonome et autocontrôle .
+
+\item Vega framework est un framework de déploiement destiné à des déploiements cloud complets sur des topologies multi-niveaux, elles suivent également une approche basée sur un modèle. La description d'une topologie donnée se fait en utilisant des fichiers XML (eXtensible Markup Language) avec ces fichiers, les développeurs peuvent répliquer une pile. Le XML contient des informations sur les instances, telles qu?ostype pour le système d'exploitation et la description de l'image pour décrire les propriétés d'une instance telle que la quantité de mémoire . 
+Ils permettent également que les petits scripts soient écrits directement dans le XML via un neoud Runoncescript qui peut faire une configuration supplémentaire sur une propagation neoud. Un gestionnaire de ressources surveille les ressources dans un système, regroupant des instancesaprès leurs attributs .
+
+
+
+\end{enumerate}
+
+\section{Conclusion : }
+Dans ce chapitre, nous avons décrit trois définition les plus utilisées de déploiement automatique des applications sur le cloud computing , Afin de facilité le choix de la technique de déploiement automatique approprie dans les prochains chapitres, nous avons montré les approches d' adoption du Cloud computing par les développeurs de logiciels implémentées par certain outils et Framworks. 
+ 
+Un des aspects essentiels de manipulation des approches de déploiement consiste à automatisé le déploiement grâce à l'utilisation des workflows en implémentant ces méthodes et ces outils, Ceci a donné l'idée de chapitre suivant. 

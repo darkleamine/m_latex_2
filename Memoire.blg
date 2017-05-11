@@ -1,0 +1,80 @@
+This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Memoire.aux
+A level-1 auxiliary file: Remerciements.aux
+A level-1 auxiliary file: chapitre1.aux
+A level-1 auxiliary file: chapitre2.aux
+A level-1 auxiliary file: Conclusion.aux
+The style file: plain.bst
+Database file #1: Biblio.bib
+I was expecting a `,' or a `}'---line 242 of file Biblio.bib
+ :   year = 2009
+ :              .
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 255 of file Biblio.bib
+ :   [note =  xii 
+ :                2.35.36.55.57.58.59]
+I'm skipping whatever remains of this entry
+A bad cross reference---entry "conf/closer/ConwayC12"
+refers to entry "conf/closer/2012", which doesn't exist
+A bad cross reference---entry "conf/icse/Szyperski03"
+refers to entry "conf/icse/2003", which doesn't exist
+A bad cross reference---entry "alan/Dearle07"
+refers to entry "conf/icse/2007fose", which doesn't exist
+A bad cross reference---entry "conf/fedcsis/MoscatoAMFM11"
+refers to entry "conf/fedcsis/2011", which doesn't exist
+A bad cross reference---entry "conf/servicewave/PetcuCNPMVRA10"
+refers to entry "conf/servicewave/2010w", which doesn't exist
+A bad cross reference---entry "conf/sac/KrikavaCF14"
+refers to entry "conf/sac/2014", which doesn't exist
+A bad cross reference---entry "conf/icse/ArdagnaNCPMMMGB12"
+refers to entry "conf/icse/2012mise", which doesn't exist
+Warning--to sort, need author or key in moda
+Warning--to sort, need author or key in hhc+98
+Warning--empty author in moda
+Warning--empty booktitle in moda
+Warning--empty year in moda
+Warning--empty author in hhc+98
+Warning--empty booktitle in hhc+98
+You've used 18 entries,
+            2118 wiz_defined-function locations,
+            628 strings with 8023 characters,
+and the built_in function-call counts, 7831 in all, are:
+= -- 700
+> -- 497
+< -- 11
++ -- 195
+- -- 170
+* -- 597
+:= -- 1266
+add.period$ -- 56
+call.type$ -- 18
+change.case$ -- 126
+chr.to.int$ -- 0
+cite$ -- 25
+duplicate$ -- 297
+empty$ -- 560
+format.name$ -- 170
+if$ -- 1676
+int.to.chr$ -- 0
+int.to.str$ -- 18
+missing$ -- 16
+newline$ -- 89
+num.names$ -- 44
+pop$ -- 159
+preamble$ -- 1
+purify$ -- 109
+quote$ -- 0
+skip$ -- 222
+stack$ -- 0
+substring$ -- 345
+swap$ -- 100
+text.length$ -- 11
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 70
+warning$ -- 7
+while$ -- 59
+width$ -- 20
+write$ -- 197
+(There were 9 error messages)
